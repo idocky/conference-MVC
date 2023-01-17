@@ -4,7 +4,6 @@ namespace app\core;
 
 class BaseController
 {
-    public $model;
     public $view;
 
     function __construct()
@@ -12,7 +11,13 @@ class BaseController
         $this->view = new BaseView();
     }
 
-    function index()
+
+    public function route($views = '')
+    {
+        return 'http://' . $_SERVER['HTTP_HOST'] . '/' . $views;
+    }
+
+    public function index()
     {
 
     }

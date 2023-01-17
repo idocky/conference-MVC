@@ -4,6 +4,6 @@ return [
     'host' => 'localhost',
     'username' =>'root',
     'password' => '',
-    'db_name' => 'task_db',
+    'db_name' => 'conference',
     'charset' => 'utf8'
 ];

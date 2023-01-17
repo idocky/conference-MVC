@@ -5,7 +5,7 @@ class Route
     static function start()
     {
         // контроллер и действие по умолчанию
-        $controller_name = 'Home';
+        $controller_name = 'Conference';
         $action_name = 'index';
 
         $routes = explode('/', $_SERVER['REQUEST_URI']);
@@ -23,6 +23,8 @@ class Route
         }
 
 
+        \app\core\Database::connect();
+
         // добавляем префиксы
         $model_name = $controller_name;
         $controller_name = $controller_name . 'Controller';
@@ -30,7 +32,7 @@ class Route
         // подцепляем файл с классом модели (файла модели может и не быть)
 
         $model_file = ucfirst(strtolower($model_name)).'.php';
-        $model_path = "application/models/".$model_file;
+        $model_path = "app/models/".$model_file;
         if(file_exists($model_path))
         {
             include "app/models/".$model_file;
@@ -44,10 +46,10 @@ class Route
         {
             include "app/controllers/" . $controller_file;
         }
-        else
-        {
-            Route::ErrorPage404();
-        }
+//        else
+//        {
+//            Route::ErrorPage404();
+//        }
         $controller_name = '\app\controllers\\'.$controller_name;
 
         // создаем контроллер
@@ -61,17 +63,17 @@ class Route
             // вызываем действие контроллера
             $controller->$action();
         }
-        else
-        {
-            // здесь также разумнее было бы кинуть исключение
-            Route::ErrorPage404();
-        }
+//        else
+//        {
+//            // здесь также разумнее было бы кинуть исключение
+//            Route::ErrorPage404();
+//        }
 
     }
 
     static function ErrorPage404()
     {
-        $host = 'http://'.$_SERVER['HTTP_HOST'].'/';
+        $host = 'http://' . $_SERVER['HTTP_HOST'] . '/';
         header('HTTP/1.1 404 Not Found');
         header("Status: 404 Not Found");
         header('Location:'.$host.'404');

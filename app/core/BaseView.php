@@ -14,4 +14,10 @@ class BaseView
 
         include 'app/views/'.$template_view;
     }
+
+    public function redirect($views = '')
+    {
+        header('Location: ' . 'http://' . $_SERVER['HTTP_HOST'] . '/' . $views);
+        exit;
+    }
 }

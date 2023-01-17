@@ -19,7 +19,7 @@
                     <a href="/" class="nav-link">Главная</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/create" class="nav-link">Создать конференцию</a>
+                    <a href="/conference/create" class="nav-link">Создать конференцию</a>
                 </li>
             </ul>
         </div>

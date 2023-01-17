@@ -1,1 +1,3 @@
-Привет 100 %
+<?php
+
+var_dump($conferences);
