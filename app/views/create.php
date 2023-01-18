@@ -17,13 +17,13 @@
             </div>
             <br/>
             <select class="form-control" size="0" name="country">
-<!--                --><?php
-//                $res = $DB->getCountries();
-//                foreach ($res as $country){
-//                    echo "<option>".$country['name_country']."</option>";
-//                }
-//
-//                ?>
+                <?php
+
+                foreach ($countries as $country){
+                    echo "<option>" . $country["name"] . "</option>";
+                }
+
+                ?>
 
             </select>
             <br/>

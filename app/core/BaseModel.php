@@ -21,7 +21,10 @@ class BaseModel
 
         $sth->execute();
 
-        $res = $sth->fetchAll(PDO::FETCH_ASSOC);
+
+        $res = $sth->fetchAll();
+
+
 
         if($res === false){
             return[];

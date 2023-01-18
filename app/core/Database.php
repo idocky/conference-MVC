@@ -8,6 +8,7 @@ class Database
 {
     private static $link;
 
+
     //подключение к БД, все настройки меняеются в config.php
     public static function connect()
     {

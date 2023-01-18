@@ -4,33 +4,25 @@ namespace app\core;
 
 class Request
 {
-    private $path;
-    private $get_params;
-    private $post_params;
+    private static $get_params;
+    private static $post_params;
 
-    public function __construct()
+    public static function constr()
     {
-        $this->path = $_GET['path'];
-        $this->get_params = $_GET;
-        unset($this->get_params['path']);
-        $this->post_params = $_POST;
+        self::$get_params = $_GET;
+        self::$post_params = $_POST;
     }
 
-    //возвращает path-параметр
-    public function getPath()
-    {
-        return $this->path;
-    }
 
     //возвращает GET-параметры
-    public function getGetParam()
+    public static function getGetParam()
     {
-        return $this->get_params;
+        return self::$get_params;
     }
 
     //возвращает POST-параметры
-    public function getPostParam()
+    public static function getPostParam()
     {
-        return $this->post_params;
+        return self::$post_params;
     }
 }

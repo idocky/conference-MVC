@@ -23,6 +23,8 @@ class Route
         }
 
 
+
+        \app\core\Request::constr();
         \app\core\Database::connect();
 
         // добавляем префиксы
